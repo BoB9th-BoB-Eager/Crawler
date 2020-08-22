@@ -1,0 +1,24 @@
+crawler: Crawler.o Cookie.o HtmlParser.o HttpParser.o HttpSocket.o Log.o path.o QManager.o UrlParser.o Sync.o Thread.o
+	g++ -o crawler Crawler.o Cookie.o HtmlParser.o HttpParser.o HttpSocket.o Log.o path.o QManager.o UrlParser.o Sync.o Thread.o
+Crawler.o: Crawler.cpp StdAfx.h QManager.h HttpSocket.h HtmlParser.h argv.h UrlParser.h
+	g++ -c Crawler.cpp
+Cookie.o: Cookie.cpp StdAfx.h Cookie.h UrlParser.h
+	g++ -c Cookie.cpp
+HtmlParser.o: HtmlParser.cpp StdAfx.h HtmlParser.h
+	g++ -c HtmlParser.cpp
+HttpParser.o:HttpParser.cpp StdAfx.h HttpParser.h
+	g++ -c HttpParser.cpp
+HttpSocket.o: HttpSocket.cpp StdAfx.h HttpParser.h UrlParser.h Cookie.h
+	g++ -c HttpSocket.cpp
+Log.o: Log.cpp StdAfx.h Log.h
+	g++ -c Log.cpp
+path.o: path.cpp StdAfx.h path.h
+	g++ -c path.cpp
+QManager.o: QManager.cpp StdAfx.h QManager.h UrlParser.h 
+	g++ -c QManager.cpp
+UrlParser.o: UrlParser.cpp StdAfx.h UrlParser.h
+	g++ -c UrlParser.cpp
+Sync.o: Sync.cpp StdAfx.h Sync.h QManager.h
+	g++ -c Sync.cpp
+Thread.o: Thread.cpp StdAfx.h Thread.h
+	g++ -c Thread.cpp
